@@ -1,0 +1,358 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Newsreader', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-display: 'Cinzel', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Default Theme: Night Academia */
+    --bg-base: #0b0c0e;
+    --bg-surface: #14161a;
+    --bg-surface-elevated: #1a1e24;
+    --bg-card: rgba(20, 22, 26, 0.85);
+    --border-subtle: rgba(220, 190, 140, 0.12);
+    --border-highlight: rgba(220, 190, 140, 0.28);
+    --text-primary: #f6f1e8;
+    --text-secondary: #c5bcae;
+    --text-muted: #857e72;
+    --accent: #d4a359;
+    --accent-glow: rgba(212, 163, 89, 0.25);
+    --accent-hover: #e2b673;
+    --accent-contrast: #18140c;
+    --success: #60a5fa;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+  }
+
+  /* =========================================================================
+     DARK THEME PALETTES
+     ========================================================================= */
+  [data-theme="midnight"],
+  :root[data-theme="midnight"] {
+    --bg-base: #060813;
+    --bg-surface: #0e1224;
+    --bg-surface-elevated: #161c36;
+    --bg-card: rgba(14, 18, 36, 0.85);
+    --border-subtle: rgba(130, 140, 255, 0.15);
+    --border-highlight: rgba(130, 140, 255, 0.35);
+    --text-primary: #f0f4ff;
+    --text-secondary: #b0bcdd;
+    --text-muted: #6b7a9e;
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.3);
+    --accent-hover: #818cf8;
+    --accent-contrast: #ffffff;
+  }
+
+  [data-theme="aurora"],
+  :root[data-theme="aurora"] {
+    --bg-base: #05141c;
+    --bg-surface: #0a222e;
+    --bg-surface-elevated: #103040;
+    --bg-card: rgba(10, 34, 46, 0.85);
+    --border-subtle: rgba(45, 212, 191, 0.15);
+    --border-highlight: rgba(45, 212, 191, 0.35);
+    --text-primary: #f0fdf4;
+    --text-secondary: #99f6e4;
+    --text-muted: #5eead4;
+    --accent: #14b8a6;
+    --accent-glow: rgba(20, 184, 166, 0.3);
+    --accent-hover: #2dd4bf;
+    --accent-contrast: #042f2e;
+  }
+
+  [data-theme="oxford"],
+  :root[data-theme="oxford"] {
+    --bg-base: #08160f;
+    --bg-surface: #0f241a;
+    --bg-surface-elevated: #173628;
+    --bg-card: rgba(15, 36, 26, 0.85);
+    --border-subtle: rgba(212, 175, 55, 0.18);
+    --border-highlight: rgba(212, 175, 55, 0.38);
+    --text-primary: #fbf7ee;
+    --text-secondary: #d1decb;
+    --text-muted: #8aa384;
+    --accent: #d4af37;
+    --accent-glow: rgba(212, 175, 55, 0.25);
+    --accent-hover: #e5c358;
+    --accent-contrast: #121f10;
+  }
+
+  [data-theme="sakura"],
+  :root[data-theme="sakura"] {
+    --bg-base: #140914;
+    --bg-surface: #221223;
+    --bg-surface-elevated: #311c33;
+    --bg-card: rgba(34, 18, 35, 0.85);
+    --border-subtle: rgba(244, 114, 182, 0.18);
+    --border-highlight: rgba(244, 114, 182, 0.38);
+    --text-primary: #fdf2f8;
+    --text-secondary: #fbcfe8;
+    --text-muted: #d946ef;
+    --accent: #f472b6;
+    --accent-glow: rgba(244, 114, 182, 0.28);
+    --accent-hover: #f687c1;
+    --accent-contrast: #2a0b25;
+  }
+
+  [data-theme="crimson"],
+  :root[data-theme="crimson"] {
+    --bg-base: #120406;
+    --bg-surface: #20080d;
+    --bg-surface-elevated: #320f16;
+    --bg-card: rgba(32, 8, 13, 0.85);
+    --border-subtle: rgba(248, 113, 113, 0.18);
+    --border-highlight: rgba(248, 113, 113, 0.4);
+    --text-primary: #fff1f2;
+    --text-secondary: #fecdd3;
+    --text-muted: #fb7185;
+    --accent: #e11d48;
+    --accent-glow: rgba(225, 29, 72, 0.32);
+    --accent-hover: #f43f5e;
+    --accent-contrast: #ffffff;
+  }
+
+  [data-theme="arctic"],
+  :root[data-theme="arctic"] {
+    --bg-base: #06111e;
+    --bg-surface: #0c1d32;
+    --bg-surface-elevated: #132b49;
+    --bg-card: rgba(12, 29, 50, 0.85);
+    --border-subtle: rgba(125, 211, 252, 0.18);
+    --border-highlight: rgba(125, 211, 252, 0.4);
+    --text-primary: #f0f9ff;
+    --text-secondary: #bae6fd;
+    --text-muted: #7dd3fc;
+    --accent: #38bdf8;
+    --accent-glow: rgba(56, 189, 248, 0.3);
+    --accent-hover: #7dd3fc;
+    --accent-contrast: #082f49;
+  }
+
+  /* =========================================================================
+     LIGHT THEME PALETTES (Tailored per aesthetic)
+     ========================================================================= */
+
+  /* 1. Night Academia / Classic Parchment (Default Light) */
+  [data-mode="light"],
+  [data-mode="light"][data-theme="night-academia"],
+  :root[data-mode="light"][data-theme="night-academia"] {
+    --bg-base: #fbf9f4;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f3eee3;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(180, 130, 50, 0.18);
+    --border-highlight: rgba(180, 130, 50, 0.38);
+    --text-primary: #1f1a14;
+    --text-secondary: #4b4033;
+    --text-muted: #7a6e5d;
+    --accent: #b47d28;
+    --accent-glow: rgba(180, 125, 40, 0.2);
+    --accent-hover: #99671b;
+    --accent-contrast: #ffffff;
+    --success: #2563eb;
+    --warning: #d97706;
+    --danger: #dc2626;
+  }
+
+  /* 2. Midnight / Solar Dawn & Royal Indigo (Light) */
+  [data-mode="light"][data-theme="midnight"],
+  :root[data-mode="light"][data-theme="midnight"] {
+    --bg-base: #f4f6fd;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #e9edf9;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(79, 70, 229, 0.16);
+    --border-highlight: rgba(79, 70, 229, 0.36);
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --accent: #4f46e5;
+    --accent-glow: rgba(79, 70, 229, 0.22);
+    --accent-hover: #4338ca;
+    --accent-contrast: #ffffff;
+    --success: #2563eb;
+    --warning: #d97706;
+    --danger: #dc2626;
+  }
+
+  /* 3. Aurora / Mint Flora & Alpine Emerald (Light) */
+  [data-mode="light"][data-theme="aurora"],
+  :root[data-mode="light"][data-theme="aurora"] {
+    --bg-base: #f0fbf7;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #e2f6ee;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(13, 148, 136, 0.18);
+    --border-highlight: rgba(13, 148, 136, 0.38);
+    --text-primary: #0d2822;
+    --text-secondary: #164e43;
+    --text-muted: #3b7a6d;
+    --accent: #0d9488;
+    --accent-glow: rgba(13, 148, 136, 0.22);
+    --accent-hover: #0f766e;
+    --accent-contrast: #ffffff;
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #dc2626;
+  }
+
+  /* 4. Oxford / Collegiate Botanical & Gilded Brass (Light) */
+  [data-mode="light"][data-theme="oxford"],
+  :root[data-mode="light"][data-theme="oxford"] {
+    --bg-base: #f6f8f4;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #eaf0e6;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(161, 98, 7, 0.2);
+    --border-highlight: rgba(161, 98, 7, 0.4);
+    --text-primary: #121e14;
+    --text-secondary: #263e2a;
+    --text-muted: #526c56;
+    --accent: #a16207;
+    --accent-glow: rgba(161, 98, 7, 0.2);
+    --accent-hover: #854d0e;
+    --accent-contrast: #ffffff;
+    --success: #15803d;
+    --warning: #d97706;
+    --danger: #dc2626;
+  }
+
+  /* 5. Sakura / Spring Blossom & Kyoto Rose (Light) */
+  [data-mode="light"][data-theme="sakura"],
+  :root[data-mode="light"][data-theme="sakura"] {
+    --bg-base: #fdf5f8;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #fae6ee;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(219, 39, 119, 0.18);
+    --border-highlight: rgba(219, 39, 119, 0.38);
+    --text-primary: #261020;
+    --text-secondary: #542546;
+    --text-muted: #8a4a75;
+    --accent: #db2777;
+    --accent-glow: rgba(219, 39, 119, 0.22);
+    --accent-hover: #be185d;
+    --accent-contrast: #ffffff;
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #e11d48;
+  }
+
+  /* 6. Crimson / Alabaster Ruby & Carmine Ink (Light) */
+  [data-mode="light"][data-theme="crimson"],
+  :root[data-mode="light"][data-theme="crimson"] {
+    --bg-base: #fff5f5;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffe5e7;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(225, 29, 72, 0.18);
+    --border-highlight: rgba(225, 29, 72, 0.4);
+    --text-primary: #1f0a0e;
+    --text-secondary: #4e1a22;
+    --text-muted: #893b48;
+    --accent: #e11d48;
+    --accent-glow: rgba(225, 29, 72, 0.22);
+    --accent-hover: #be123c;
+    --accent-contrast: #ffffff;
+    --success: #059669;
+    --warning: #d97706;
+    --danger: #be123c;
+  }
+
+  /* 7. Arctic / Glacial Clean & Cerulean Sky (Light) */
+  [data-mode="light"][data-theme="arctic"],
+  :root[data-mode="light"][data-theme="arctic"] {
+    --bg-base: #f0f7ff;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #e0effe;
+    --bg-card: rgba(255, 255, 255, 0.94);
+    --border-subtle: rgba(2, 132, 199, 0.18);
+    --border-highlight: rgba(2, 132, 199, 0.38);
+    --text-primary: #091e36;
+    --text-secondary: #1b3a5b;
+    --text-muted: #456f96;
+    --accent: #0284c7;
+    --accent-glow: rgba(2, 132, 199, 0.22);
+    --accent-hover: #0369a1;
+    --accent-contrast: #ffffff;
+    --success: #0284c7;
+    --warning: #d97706;
+    --danger: #dc2626;
+  }
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.font-serif-academic {
+  font-family: var(--font-serif);
+}
+
+.font-display-title {
+  font-family: var(--font-display);
+}
+
+.font-code {
+  font-family: var(--font-mono);
+}
+
+/* Glassmorphism & Atmospheric Utilities */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+}
+
+[data-mode="light"] .glass-panel {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 14px rgba(0, 0, 0, 0.02);
+}
+
+.glass-panel-elevated {
+  background: var(--bg-surface-elevated);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-highlight);
+}
+
+[data-mode="light"] .glass-panel-elevated {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05), 0 12px 28px rgba(0, 0, 0, 0.04);
+}
+
+/* Grain texture overlay */
+.bg-grain {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+[data-mode="light"] .bg-grain {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 0);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-highlight);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Nexus Tutor",
+  "description": "An adaptive Socratic AI tutor designed to teach you how to think — not simply what to answer. Don't memorize. Understand.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

@@ -109,13 +109,13 @@ export const DiagnosticView: React.FC<DiagnosticViewProps> = ({ onComplete, onEx
             </div>
 
             {/* Concept Kicker */}
-            <div className="text-xs font-mono text-[var(--accent)] uppercase tracking-widest mb-2">
+            <div className="text-xs font-mono text-[var(--accent)] uppercase tracking-wide mb-2">
               {currentQ.concept}
             </div>
 
             {/* Question Text */}
-            <h2 className="text-base sm:text-lg font-medium text-[var(--text-primary)] leading-relaxed mb-6">
-              <MathRenderer math={currentQ.question} />
+            <h2 className="text-base sm:text-lg font-medium text-[var(--text-primary)] leading-relaxed mb-6 font-sans tracking-normal">
+              <MathRenderer text={currentQ.question} />
             </h2>
 
             {/* Options */}
@@ -141,14 +141,14 @@ export const DiagnosticView: React.FC<DiagnosticViewProps> = ({ onComplete, onEx
                     }`}
                   >
                     <div className="flex items-start gap-3">
-                      <span className="font-mono text-xs text-[var(--accent)] font-semibold mt-0.5 uppercase">
+                      <span className="font-mono text-xs text-[var(--accent)] font-semibold mt-0.5 uppercase tracking-normal">
                         {option.id}.
                       </span>
-                      <div className="flex-1 text-xs sm:text-sm leading-relaxed">
-                        <MathRenderer math={option.text} />
+                      <div className="flex-1 text-xs sm:text-sm leading-relaxed tracking-normal font-sans text-[var(--text-primary)]">
+                        <MathRenderer text={option.text} />
                         {showFeedback && (
-                          <div className="mt-2 text-xs font-serif-academic italic text-[var(--text-secondary)]">
-                            {option.feedback}
+                          <div className="mt-2 text-xs font-serif-academic italic text-[var(--text-secondary)] leading-relaxed tracking-normal">
+                            <MathRenderer text={option.feedback} />
                           </div>
                         )}
                       </div>

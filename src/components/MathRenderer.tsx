@@ -265,28 +265,19 @@ export const MathRenderer: React.FC<MathRendererProps> = ({
     (typeof children === 'string' ? children : '') ??
     '';
 
-  // If explicitly flagged as block math without delimiters
-  if (block && !rawContent.includes('$') && !rawContent.includes('\\(') && !rawContent.includes('\\[')) {
+  const segments = useMemo(() => extractLatexSegments(rawContent), [rawContent]);
+
+  // If explicitly flagged as block math for a single standalone math formula
+  if (block && segments.length === 1 && (segments[0].type === 'block-math' || segments[0].type === 'inline-math')) {
     return (
       <div className={`my-2 overflow-x-auto py-1 text-center ${className}`}>
-        <SafeBlockMath math={rawContent} />
+        <SafeBlockMath math={segments[0].content} />
       </div>
     );
   }
 
-  // If explicitly passed via math prop without delimiters
-  if (math !== undefined && !rawContent.includes('$') && !rawContent.includes('\\(') && !rawContent.includes('\\[')) {
-    return (
-      <span className={`inline-block mx-0.5 px-0.5 align-baseline ${className}`}>
-        <SafeInlineMath math={rawContent} />
-      </span>
-    );
-  }
-
-  const segments = useMemo(() => extractLatexSegments(rawContent), [rawContent]);
-
   return (
-    <span className={`inline-block align-middle max-w-full leading-relaxed ${className}`}>
+    <span className={`inline max-w-full leading-relaxed tracking-normal font-sans ${className}`}>
       {segments.map((seg, idx) => {
         if (seg.type === 'block-math') {
           return (

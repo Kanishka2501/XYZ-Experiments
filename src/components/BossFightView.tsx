@@ -171,8 +171,8 @@ Using $g = 10\\text{ m/s}^2$, deduce the initial velocity $v_{\\text{bullet}}$ o
             <div className="text-xs font-mono text-[var(--accent)] uppercase tracking-wider mb-1">
               {currentQ.title}
             </div>
-            <h3 className="text-sm sm:text-base font-medium text-[var(--text-primary)] leading-relaxed">
-              <MathRenderer math={currentQ.question} />
+            <h3 className="text-sm sm:text-base font-medium text-[var(--text-primary)] leading-relaxed font-sans tracking-normal">
+              <MathRenderer text={currentQ.question} />
             </h3>
           </div>
 
